@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("background.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+#container {
+    background-color: #ffffff;
+    border: 5px solid rgb(207, 239, 241);
+    border-radius: 30px;
+    width: 47vw;
+    height: 70vh;
+    margin: auto;
+    margin-top: 14vh;
+    padding-top: 4vh;
+
+}
+
+.name-label {
+    font-size: 14pt;
+    color: gray;
+    margin-left: 2vw;
+
+}
+.name {
+    margin-left: 2vw;
+    width: 42vw;
+    height: 4vh;
+    border-radius: 14px;
+    font-size: 14pt;
+    margin-bottom: 2vh;
+}
+
+.deadline {
+    margin-left: 2vw;
+    width: 26vw;
+    height: 4vh;
+    border-radius: 14px;
+    font-size: 14pt; 
+    margin-bottom: 2vh;
+}
+
+.deadline-label {
+    font-size: 14pt;
+    color: gray;
+    margin-left: 2vw;
+
+}
+
+.category-label {
+    font-size: 14pt;
+    color: gray;
+    margin-left: 2vw;
+
+}
+
+.category {
+    margin-left: 2vw;
+    width: 26vw;
+    height: 4vh;
+    border-radius: 14px;
+    font-size: 14pt; 
+    margin-bottom: 2vh;
+}
+
+.time {
+    margin-left: 2vw;
+    width: 26vw;
+    height: 4vh;
+    border-radius: 14px;
+    font-size: 14pt; 
+}
+
+.time-label {
+    font-size: 14pt;
+    color: gray;
+    margin-left: 2vw;
+
+}
+
+.button-submit {
+    width: 170px;
+    height: 40px;
+    border: none;
+    font-size: 14pt;
+    color: white;
+    border-radius: 17px;
+    margin-top: 1vw;
+    margin-left: 2vw; 
+    background-color: aqua;
+}
+
+.button-submit:hover {
+    background-color: rgb(6, 207, 207);
+}

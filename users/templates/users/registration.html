@@ -1,0 +1,29 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+
+{% block title %}
+<title>ToDo reg</title>
+{% endblock %}
+
+{% block content %}
+<div class="header" ><h2>Создание аккаунта</h2></div>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <label for="username-id-for-label">Никнейм</label>
+    <br>
+    {{ form.username }}
+    <br>
+    <label for="password1-id-for-label">Пароль</label>
+    <br>
+    {{ form.password1 }}
+    <label for="password2-id-for-label">Повтори пароль</label>
+    <br>
+    {{ form.password2 }}    
+    <div class="reg-link">
+    <a href="{% url 'users:login' %}">Уже есть акаунт? Можно войти тут!</a>
+    </div>
+</form>
+
+{% endblock %}

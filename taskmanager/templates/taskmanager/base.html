@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
+    {% block css %}
+
+    {% endblock %}
+</head>
+
+<body>
+    
+    <header>
+        <div class="logo"><a href="#" ><i class="ri-brain-line"></i></a></div>
+        <div class="user-info">
+            <a href="#" class="user-menu" ><i class="ri-user-line"></i></a>
+            <span class="user-first-name">Иван</span>
+            <span class="user-last-name">Иванов</span>
+            {% if user.avatar %}
+            <img class="user-avatar" src="defaul_avatar.png" alt="UserAvatar">
+            {% endif %}
+
+        </div>
+    </header>
+    {% block content %}
+    
+    {% endblock %}
+
+</body>
+</html>

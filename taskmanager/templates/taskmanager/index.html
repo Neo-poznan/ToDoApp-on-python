@@ -1,0 +1,57 @@
+{% extends 'taskmanager/base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'styles/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container" >
+    <main>
+            <div id="task-list">
+                <div class="task-item" draggable="true" id="task1">
+                    <div class="task-item-name"><p>Задача 1</p></div>
+                    <div class="task-item-delete"><a href=""><i class="ri-delete-bin-6-line"></i></a></div>
+                </div>
+                <div class="task-item" draggable="true" id="task2">
+                    <div class="task-item-name"><p>Задача 2</p></div>
+                    <div class="task-item-delete"><a href=""><i class="ri-delete-bin-6-line"></i></a></div>
+
+                </div>
+                <div class="task-item" draggable="true" id="task3">
+                    <div class="task-item-name"><p>Задача 3</p></div>
+                    <div class="task-item-delete"><a href=""><i class="ri-delete-bin-6-line"></i></a></div>
+
+                </div>
+                <div class="task-item" draggable="true" id="task4">
+                    <div class="task-item-name"><p>Задача 4</p></div>
+                    <div class="task-item-delete"><a href=""><i class="ri-delete-bin-6-line"></i></a></div>
+
+                </div>
+                <div class="task-item" draggable="true" id="task5">
+                    <div class="task-item-name"><p>Задача 5</p></div>
+                    <div class="task-item-delete"><a href=""><i class="ri-delete-bin-6-line"></i></a></div>
+
+                </div>
+                <div class="task-item-add">
+                    <a href="#">
+                        <i class="ri-add-large-line"></i>
+                        <p>Добавить задачу</p>
+                    </a> 
+                </div>
+            </div>                    
+
+    </main>
+    <div id="sidebar">
+        <div>
+            <canvas id="pie-chart"></canvas>
+        </div>            
+    </div>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{% static 'JavaScript/pie_chart.js' %}"></script>
+    <script src="{% static 'JavaScript/scripts.js' %}"></script>
+
+{% endblock %}

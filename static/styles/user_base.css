@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    background-image: url("backgrounds/background.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.container {
+    border:  5px solid rgb(207, 239, 241);
+    border-radius: 30px;
+    background-color: #ffffff;
+    margin-right: 34.5vw;
+    margin-left: 34.5vw;
+    margin-top: 22vh;
+
+}
+
+.header {
+    color: gray;
+    text-align: center;
+    margin-bottom: 3vh;
+    margin-top: 2vh;
+}
+
+.form-input {
+
+    margin-left: 1vw;
+    height: 4vh;
+    width: 28vw;
+    border-radius: 14px;
+    font-size: 14pt;
+    margin-bottom: 2vh;
+}
+
+label {
+    font-size: 14pt;
+    color: gray;
+    margin-left: 2vw;
+}
+
+.reg-link {
+    
+    text-align: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+a {
+   color: gray; 
+}
+
+a:hover {
+    color: rgb(78, 78, 78);
+}
+
+
