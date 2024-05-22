@@ -1,5 +1,6 @@
 let dragged;
 
+// перетаскивание элементов
 document.addEventListener("dragstart", function(event) {
     dragged = event.target;
     event.dataTransfer.setData('text/plain', null);
@@ -32,6 +33,7 @@ function getClosestTask(el) {
     }
 }
 
+// функция получение csrf токена
 function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
@@ -49,7 +51,7 @@ function getCookie(name) {
 }
 const csrftoken = getCookie('csrftoken');
 
-
+// отправляет на ревер данные о текущем расположении элементов
 function sendTaskOrderToServer() {
     let tasks = Array.from(document.getElementsByClassName('task-item'));
     let taskOrder = tasks.map(task => task.id);
@@ -62,5 +64,27 @@ function sendTaskOrderToServer() {
         body: JSON.stringify({order: taskOrder}),
     });
 }
+
+// выпадающий список 
+
+/* Когда пользователь нажимает на кнопку,
+переключение между скрытием и отображением раскрывающегося содержимого */
+function DropDown() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  
+  // Закройте выпадающее меню, если пользователь щелкает за его пределами
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
 
 

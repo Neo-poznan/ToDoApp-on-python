@@ -9,7 +9,15 @@
 {% block content %}
 <div class="header" ><h2>Создание аккаунта</h2></div>
 
-<form action="" method="post">
+{% if messages %}
+<ul>
+{% for message in messages %}
+<li>{{ message }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+<form action="{% url 'users:registration' %}" method="post">
     {% csrf_token %}
     <label for="username-id-for-label">Никнейм</label>
     <br>
@@ -21,9 +29,11 @@
     <label for="password2-id-for-label">Повтори пароль</label>
     <br>
     {{ form.password2 }}    
+    <button type="submit">Далее</button>
+
+</form>
+
     <div class="reg-link">
     <a href="{% url 'users:login' %}">Уже есть акаунт? Можно войти тут!</a>
     </div>
-</form>
-
 {% endblock %}

@@ -14,14 +14,31 @@
 <body>
     
     <header>
-        <div class="logo"><a href="#" ><i class="ri-brain-line"></i></a></div>
+        <div class="logo"><a href="{% url 'taskmanager:index' %}" ><i class="ri-brain-line"></i></a></div>        
+        </div>  
+        
         <div class="user-info">
-            <a href="#" class="user-menu" ><i class="ri-user-line"></i></a>
-            <span class="user-first-name">Иван</span>
-            <span class="user-last-name">Иванов</span>
+            <div class="user-menu" >
+                
+                <div class="dropdown">
+                    <div onclick="DropDown()" class="dropbtn">Меню</div>
+                    <div id="myDropdown" class="dropdown-content">
+                    <a href="#">Установить аватар</a>
+                    <hr>
+                    <a href="#">История</a>
+                    <hr>
+                    <a href="{% url 'users:logout' %}">Выйти</a>
+                    </div>
+                </div>
+                <i class="ri-user-line"></i>
+            </div>
+            <span class="user-username">{{ user.username }}</span>
             {% if user.avatar %}
             <img class="user-avatar" src="defaul_avatar.png" alt="UserAvatar">
             {% endif %}
+
+        </div>
+
 
         </div>
     </header>

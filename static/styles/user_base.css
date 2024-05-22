@@ -58,4 +58,19 @@ a:hover {
     color: rgb(78, 78, 78);
 }
 
+button {
+    width: 6vw;
+    height: 4vh;
+    background-color: rgb(80, 156, 243);
+    color: #ffffff;
+    font-size: 14pt;
+    border: none;
+    border-radius: 14px;
+    margin-left: 1vw;
+
+}
+
+button:hover {
+    background-color: rgb(51, 106, 169);
+}
 
