@@ -51,19 +51,24 @@ function getCookie(name) {
 }
 const csrftoken = getCookie('csrftoken');
 
-// отправляет на ревер данные о текущем расположении элементов
-function sendTaskOrderToServer() {
-    let tasks = Array.from(document.getElementsByClassName('task-item'));
-    let taskOrder = tasks.map(task => task.id);
-    fetch('/to-do-list/update-task-order/', {
+// отправляет на сервер данные о текущем расположении элементов
+
+ function sendTaskOrderToServer() {
+     let tasks = Array.from(document.getElementsByClassName('task-item'));
+     let taskOrder = tasks.map(task => task.id);
+     fetch('/to-do-list/update-task-order/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'X-CSRFToken': csrftoken,
         },
         body: JSON.stringify({order: taskOrder}),
+    }).then(response => {
+        if (response.ok) {
+            window.location.reload();  // Принудительная перезагрузка страницы
+        }
     });
-}
+ }
 
 // выпадающий список 
 

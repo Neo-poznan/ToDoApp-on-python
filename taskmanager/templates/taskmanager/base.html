@@ -28,6 +28,10 @@
                     <a href="#">История</a>
                     <hr>
                     <a href="{% url 'users:logout' %}">Выйти</a>
+                    {% if user.is_superuser %}
+                    <hr>
+                    <a href="{% url 'admin:index' %}">Админка</a>
+                    {% endif %}
                     </div>
                 </div>
                 <i class="ri-user-line"></i>

@@ -9,30 +9,13 @@
 <div class="container" >
     <main>
             <div id="task-list">
-                <div class="task-item" draggable="true" id="task1">
-                    <div class="task-item-name"><p>Задача 1</p></div>
+                {% for task in task_list %}
+                <div class="task-item" draggable="true" id="{{ task.order }}">
+                    <div class="task-item-name"><p>{{ task.name }}</p></div>
                     <div class="task-item-delete"><a href=""><i class="ri-delete-bin-6-line"></i></a></div>
                 </div>
-                <div class="task-item" draggable="true" id="task2">
-                    <div class="task-item-name"><p>Задача 2</p></div>
-                    <div class="task-item-delete"><a href=""><i class="ri-delete-bin-6-line"></i></a></div>
+                {% endfor %}
 
-                </div>
-                <div class="task-item" draggable="true" id="task3">
-                    <div class="task-item-name"><p>Задача 3</p></div>
-                    <div class="task-item-delete"><a href=""><i class="ri-delete-bin-6-line"></i></a></div>
-
-                </div>
-                <div class="task-item" draggable="true" id="task4">
-                    <div class="task-item-name"><p>Задача 4</p></div>
-                    <div class="task-item-delete"><a href=""><i class="ri-delete-bin-6-line"></i></a></div>
-
-                </div>
-                <div class="task-item" draggable="true" id="task5">
-                    <div class="task-item-name"><p>Задача 5</p></div>
-                    <div class="task-item-delete"><a href=""><i class="ri-delete-bin-6-line"></i></a></div>
-
-                </div>
                 <div class="task-item-add">
                     <a href="#">
                         <i class="ri-add-large-line"></i>
