@@ -1,7 +1,18 @@
 from django.db import models
+from django.db.models import QuerySet
+from django.core.exceptions import ValidationError
 
 from users.models import User
 
+
+class CategoryQuery(QuerySet):
+
+    def GetCustomCategories(self, user):
+        # берем сначала все стандартные, а потом категории созданные пользователем
+        base = self.filter(is_custom=False)
+        custom = self.filter(user=user, is_custom=True) 
+        # объединяем их в один queryset
+        return base.union(custom)
 
 class Category(models.Model):
     name = models.CharField(max_length=120)
@@ -10,6 +21,11 @@ class Category(models.Model):
     is_custom = models.BooleanField(default=True)
     # пользователь создавший категорию
     user = models.ForeignKey(to=User, on_delete=models.CASCADE)
+
+    
+    objects = CategoryQuery.as_manager()
+    
+
 
 class Task(models.Model):
     name = models.CharField(max_length=250)
@@ -29,14 +45,23 @@ class Task(models.Model):
         # достаем данные из формы
         name = data['name']
         deadline = data['deadline']
-        category_name = data['catagory']
-        # получаем категорию по названию
-        category = Category.objects.get(name=category_name)
-        # получаем order из самого конца списка
-        current_last_order = task_list.last()
-        # новый таск будет добавляться в конец списка
-        order = current_last_order + 1
-        # добавляем
-        self.objects.create(name=name, order=order, deadline=deadline, category=category, user=user)
+        if not deadline:
+            deadline = None
+        category_id = data['category']
+        category = Category.objects.get(id = category_id)
 
-        
+
+        if task_list: # если это первая задача пользователя, order будет 0 
+            current_last_order = task_list.last().order # получаем order из самого конца списка
+            order = current_last_order + 1 # новый таск будет добавляться в конец списка
+        else:
+            order = 0 
+          
+        try:
+            # добавляем задачу
+            self.objects.create(name=name, order=order, 
+                deadline=deadline, category=category, user=user)
+            return {'success': 'success', 'error': ''}
+        except (ValueError, ValidationError) as form_except:
+            return {'success': '', 'error': f'{form_except}'}
+    

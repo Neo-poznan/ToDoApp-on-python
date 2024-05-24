@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/addstyle.css' %}">
+    <title>To Do list</title>
+</head>
+<body>
+    <div id="container" >
+        <form id="form" name="taskcreationform">
+            <label class="name-label" for="name-id-for-label">Название</label>
+            <br>
+            <input name="name" class="clean" id="name-id-for-label" type="text">
+            <br>
+            <label class="deadline-label" for="deadline-id-for-label">Дедлайн (необязательно)</label>
+            <br>
+            <input name="deadline" class="clean" id="deadline-id-for-label" type="date">
+            <br>
+            <label class="category-label" for="category-id-for-label">Категория задачи</label>
+            <br>
+            <select  class="clean" name="category">
+                <option selected="selected" value="">None</option>
+                {% for category in categories %}
+                <option value="{{ category.id }}">{{ category.name }}</option>  
+                {% endfor %}
+            </select>
+            <br>
+
+            <button name="send" class="button-submit" type="submit">Сохранить</button>
+        </form>
+        <script src="{% static 'JavaScript/SendForm.js' %}"></script>
+    </div>
+    
+</body>
+</html>

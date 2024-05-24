@@ -53,10 +53,10 @@ const csrftoken = getCookie('csrftoken');
 
 // отправляет на сервер данные о текущем расположении элементов
 
- function sendTaskOrderToServer() {
-     let tasks = Array.from(document.getElementsByClassName('task-item'));
-     let taskOrder = tasks.map(task => task.id);
-     fetch('/to-do-list/update-task-order/', {
+function sendTaskOrderToServer() {
+    let tasks = Array.from(document.getElementsByClassName('task-item'));
+    let taskOrder = tasks.map(task => task.id);
+    fetch('/to-do-list/update-task-order/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ const csrftoken = getCookie('csrftoken');
             window.location.reload();  // Принудительная перезагрузка страницы
         }
     });
- }
+}
 
 // выпадающий список 
 
@@ -91,5 +91,4 @@ function DropDown() {
       }
     }
   }
-
 

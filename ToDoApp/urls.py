@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('to-do-list/',include('taskmanager.urls', namespace='taskmanager')),
     path('user/', include('users.urls', namespace='users')),
+    
 ]
