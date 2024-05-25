@@ -10,3 +10,17 @@
 * История выполненых задач
 * Создание категорий
  
+## Локальный запуск:
+Создать папку и открыть ее в терминале, в терминале прописать:
+```
+python -m venv venv
+venv/Scripts/activate
+```
+С помощью `pip install` установить все модули из requirements.
+В свою папку вставляем папку с проектом и в терминале пишем `cd ToDoApp-on-python`  
+Далее создаем миграции:
+```
+python manage.py makemigrations
+python manage.py migrate
+```
+И наконец прописываем `python manage.py runserver`

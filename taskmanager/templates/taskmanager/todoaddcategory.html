@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/addstyle.css' %}">
+    <title>To Do list</title>
+</head>
+<body>
+    <div id="container" >
+        
+        <form id="form" name="taskcreationform">
+            <label class="label" for="name-id-for-label">Название</label>
+            <br>
+            <input name="name" required type="text" class="clean">
+            <br>
+            <label class="label" for="deadline-id-for-label">Выберите цвет, кторый будет отображаться на диаграмме</label>
+            <br>
+            <input name="color" class="color-picker" type="color" value="{{ color_val }}">
+            <br>
+            <button name="send" class="button-submit" type="submit">Сохранить</button>
+        </form>
+    </div>
+    <script src="{% static 'JavaScript/SendForm.js' %}"></script>
+    
+</body>
+</html>

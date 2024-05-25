@@ -15,12 +15,13 @@ body {
     border-radius: 30px;
     width: 47vw;
     margin: auto;
-    margin-top: 14vh;
+    margin-top: 25vh;
     padding-top: 4vh;
+    display: flex;
 
 }
 
-.name-label {
+.label {
     font-size: 14pt;
     color: gray;
     margin-left: 2vw;
@@ -35,20 +36,9 @@ body {
     margin-bottom: 2vh;
 }
 
-
-
-.deadline-label {
-    font-size: 14pt;
-    color: gray;
+.color-picker {
     margin-left: 2vw;
-
-}
-
-.category-label {
-    font-size: 14pt;
-    color: gray;
-    margin-left: 2vw;
-
+    width: 4vw;
 }
 
 
@@ -67,4 +57,15 @@ body {
 
 .button-submit:hover {
     background-color: rgb(6, 207, 207);
+}
+
+.link {
+    color: gray;
+    margin-left: 2vw;
+    font-size: 12pt;    
+}
+
+.link:hover {
+    color: rgb(78, 78, 78);
+
 }

@@ -12,7 +12,7 @@
                 {% for task in task_list %}
                 <div class="task-item" draggable="true" id="{{ task.order }}">
                     <div class="task-item-name"><p>{{ task.name }}</p></div>
-                    <div class="task-item-delete"><a href=""><i class="ri-delete-bin-6-line"></i></a></div>
+                    <div class="task-item-delete"><a href="{% url 'taskmanager:delete' task.id %}"><i class="ri-delete-bin-6-line"></i></a></div>
                 </div>
                 {% endfor %}
 

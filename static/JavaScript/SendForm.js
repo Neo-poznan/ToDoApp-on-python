@@ -34,7 +34,7 @@ async function postData(url = '', data = {}) {
 
         if (jsonResponse.success === 'success') {
             // Если операция успешна, перенаправляем пользователя
-            window.location.href = '/to-do-list/index/'; // Укажите нужный URL для перенаправления
+            window.location.href = '/to-do-list/index/'; // URL для перенаправления
         } else if (jsonResponse.error) {
             // Если есть ошибка, выводим её на экран
             alert('Ошибка: ' + jsonResponse.error);  // потом сделаю нормальный вывод ошибки а пока alert
@@ -60,7 +60,7 @@ form.addEventListener('submit', function (event) {
     let data = JSON.stringify(object);
 
     // передаем в фукцию fetch данные и получаем результат
-    postData('/to-do-list/create-task/', data)
+    postData(window.location.href, data)
 })
 
 
