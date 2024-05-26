@@ -1,0 +1,46 @@
+header {
+    background-color: rgb(224, 237, 238);
+    border-bottom: 5px solid rgb(214, 214, 214) ;
+
+}
+
+.logo a {
+    color: white;
+}
+
+.user-info {
+    color: white;
+}
+
+.user-menu {
+    color: white;
+}
+
+.user-username {
+    color: white; 
+}
+
+main {
+    border: 3px solid rgb(214, 214, 214);
+}
+
+.task-item {
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+}
+
+.task-item-add {
+    border:3px dashed #ccc; 
+}
+
+.task-item-add i {
+    border: 3px dashed #ccc;
+}
+
+.task-item-add a {
+    color: #ccc;
+}
+
+#sidebar {
+    border: 3px solid rgb(214, 214, 214);
+}

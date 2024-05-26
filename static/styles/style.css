@@ -7,8 +7,6 @@ header {
     text-align: right;
     width: 100vw;
     height: 10vh;
-    background-color: rgb(224, 237, 238);
-    border-bottom: 5px solid rgb(214, 214, 214) ;
     display: flex;
     align-items: center;
 }
@@ -21,7 +19,6 @@ header {
 }
 
 .logo a {
-    color: white;
     font-size: 6vh;
     text-decoration: none;
 }
@@ -31,7 +28,6 @@ header {
     display: flex;
     justify-content: right;
     align-items: center;
-    color: white;
     font-size: 17pt;
     margin-right: 2vw;
 }
@@ -40,14 +36,11 @@ header {
     font-size: 4vh;
     margin-right: 3px;
     text-decoration: none;
-    color: white;
 }
 
 
 .user-username {
     margin-right: 14px;
-    color: white;
-    
 }
 
 .user-avatar {
@@ -66,7 +59,6 @@ header {
 
 main {
     margin: 4vw;
-    border: 3px solid rgb(214, 214, 214);
     border-radius: 20px;
     width: 38vw;
     padding: 3vh;
@@ -78,9 +70,7 @@ main {
 }
 
 .task-item {
-    border: 1px solid #ccc;
     border-radius: 10px;
-    background-color: #f0f0f0;
     margin: 10px;
     padding: 16px;
     width: 35vw;
@@ -102,7 +92,6 @@ main {
 }
 
 .task-item-add {
-    border:3px dashed #ccc; 
     border-radius: 10px;
     margin: 10px;
     padding: 16px;
@@ -113,7 +102,6 @@ main {
 .task-item-add i {
     font-size: 16pt;
     padding: 4px;
-    border: 3px dashed #ccc;
     border-radius: 20px;
 }
 
@@ -123,15 +111,12 @@ main {
 
 .task-item-add a {
     text-decoration: none;
-    color: #ccc;
-
 }
 
 
 #sidebar {
     margin: 4vw;
     border-radius: 20px;
-    border: 3px solid rgb(214, 214, 214);
     width: 40vw;
     height: 55vh;
 }
@@ -178,7 +163,10 @@ main {
   }
   
   /* Изменение цвета выпадающих ссылок при наведении курсора */
-.dropdown-content a:hover {background-color: #ddd}
+.dropdown-content a:hover {
+    background-color: #ddd;
+    border-radius: 10px;
+}
   
   /* Показать выпадающее меню (используйте JS, чтобы добавить этот класс .dropdown-content содержимого, когда пользователь нажимает на кнопку выпадающего списка) */
 .show {display:block;}

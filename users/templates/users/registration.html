@@ -1,6 +1,13 @@
 {% extends 'users/base.html' %}
 {% load static %}
 
+{% block css %}
+    {% if user.preferred_theme == 'Темная' %}
+        <link rel="stylesheet" href="{% static 'styles/themes/form/dark.css' %}">
+    {% else %}
+        <link rel="stylesheet" href="{% static 'styles/themes/form/light.css' %}">
+    {% endif %}
+{% endblock %}
 
 {% block title %}
 <title>ToDo reg</title>
@@ -29,11 +36,10 @@
     <label for="password2-id-for-label">Повтори пароль</label>
     <br>
     {{ form.password2 }}    
-    <button type="submit">Далее</button>
+    <a href="{% url 'users:login' %}">Уже есть акаунт? Войти можно тут</a>
+    <br>
+    <button class="button-submit" type="submit">Далее</button>
 
 </form>
 
-    <div class="reg-link">
-    <a href="{% url 'users:login' %}">Уже есть акаунт? Можно войти тут!</a>
-    </div>
 {% endblock %}

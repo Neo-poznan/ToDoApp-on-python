@@ -1,0 +1,51 @@
+body {
+    background-color: rgb(8, 8, 8);
+}
+
+header {
+    background-color: rgb(20, 20, 20);
+    border-bottom: 5px solid rgb(50, 50, 50) ;
+
+}
+
+.logo a {
+    color: rgb(80, 80, 80);
+}
+
+.user-info {
+    color: rgb(80, 80, 80);
+}
+
+.user-menu {
+    color: rgb(80, 80, 80);
+}
+
+.user-username {
+    color: rgb(80, 80, 80); 
+}
+
+main {
+    border: 3px solid rgb(80, 80, 80);
+}
+
+.task-item {
+    border: 1px solid #303030;
+    background-color: rgb(8, 8, 8);
+    color: #ccc;
+}
+
+.task-item-add {
+    border:3px dashed rgb(80, 80, 80); 
+}
+
+.task-item-add i {
+    border: 3px dashed rgb(80, 80, 80);
+}
+
+.task-item-add a {
+    color: rgb(80, 80, 80);
+}
+
+#sidebar {
+    border: 3px solid rgb(80, 80, 80);
+}

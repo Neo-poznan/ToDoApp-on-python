@@ -4,18 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'styles/addstyle.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/form.css' %}">
+    {% if user.preferred_theme == 'Темная' %}
+        <link rel="stylesheet" href="{% static 'styles/themes/form/dark.css' %}">
+    {% elif user.preferred_theme == 'Светлая' %}
+        <link rel="stylesheet" href="{% static 'styles/themes/form/light.css' %}">
+    {% endif %}
+    
     <title>To Do list</title>
 </head>
 <body>
     <div id="container" >
         
+        <div class="header" ><h2>Создание пользовательской категории</h2></div>
         <form id="form" name="taskcreationform">
-            <label class="label" for="name-id-for-label">Название</label>
+            <label for="name-id-for-label">Название</label>
             <br>
-            <input name="name" required type="text" class="clean">
+            <input name="name" required type="text" class="form-input">
             <br>
-            <label class="label" for="deadline-id-for-label">Выберите цвет, кторый будет отображаться на диаграмме</label>
+            <label for="deadline-id-for-label">Выберите цвет, кторый будет отображаться на диаграмме</label>
             <br>
             <input name="color" class="color-picker" type="color" value="{{ color_val }}">
             <br>

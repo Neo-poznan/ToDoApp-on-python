@@ -9,7 +9,7 @@ document.addEventListener("dragstart", function(event) {
 document.addEventListener("dragover", function(event) {
     event.preventDefault();
     let target = getClosestTask(event.target);
-    target.style.border = "dashed";
+    target.style.border = "4px dashed " + task_border; // цвет зависит от темы
 });
 
 document.addEventListener("dragleave", function(event) {

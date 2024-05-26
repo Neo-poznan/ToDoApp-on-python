@@ -6,7 +6,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import View, TemplateView
 
 from taskmanager.models import Task, Category
-from taskmanager.color_converter import hex_to_rgba_02, random_hex
+from taskmanager.color_converter import hex_to_rgba_04, random_hex
 
 
 
@@ -15,7 +15,12 @@ class TaskListView(LoginRequiredMixin,TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['task_list'] = Task.objects.filter(user=self.request.user).order_by('order')
+        # queryset тасков отсортированный по order 
+        task_list = Task.objects.filter(user=self.request.user).order_by('order')
+        context['task_list'] = task_list
+        # получаем из него данные для диаграммы и упаковываем в json
+        chart_data = task_list.get_dataset_for_chart()
+        context['chart_data'] = json.dumps(chart_data)
         return context
     
 
@@ -75,7 +80,7 @@ class CategoryCreationView(View):
         form = json.loads(body_unicode)
         name = form['name']
         hex = form['color']
-        rgba = hex_to_rgba_02(hex) #  переделываем хеш цвета в rgba и добавляем прозрачность 0.2
+        rgba = hex_to_rgba_04(hex) #  переделываем хеш цвета в rgba и добавляем прозрачность 0.4
         Category.objects.create(name=name, color=rgba, user=self.request.user)
         return JsonResponse({'error': '', 'success': 'success'}) 
     

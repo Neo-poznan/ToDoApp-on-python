@@ -1,12 +1,12 @@
 import random
 import string
 
-def hex_to_rgba_02(value):
+def hex_to_rgba_04(value):
     value = value.lstrip('#')
     lv = len(value)
     rgb = tuple(int(value[i:i + lv // 3], 16) for i in range(0, lv, lv // 3))
     rgba = f'rgba{rgb}'[0:-1]
-    rgba += ', 0.2)'
+    rgba += ', 0.4)'
     return rgba
 
 def random_hex():

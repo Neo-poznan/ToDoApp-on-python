@@ -4,23 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'styles/addstyle.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/form.css' %}">
+
+    {% if user.preferred_theme == 'Темная' %}
+        <link rel="stylesheet" href="{% static 'styles/themes/form/dark.css' %}">
+    {% elif user.preferred_theme == 'Светлая' %}
+        <link rel="stylesheet" href="{% static 'styles/themes/form/light.css' %}">
+    {% endif %}
+
     <title>To Do list</title>
 </head>
 <body>
     <div id="container" >
+        <div class="header" ><h2>Добавление задачи</h2></div>
         <form id="form" name="taskcreationform">
-            <label class="label" for="name-id-for-label">Название</label>
+            <label for="name-id-for-label">Название</label>
             <br>
-            <input name="name" required class="clean" id="name-id-for-label" type="text">
+            <input name="name" required class="form-input" id="name-id-for-label" type="text">
             <br>
-            <label class="label" for="deadline-id-for-label">Дедлайн (необязательно)</label>
+            <label for="deadline-id-for-label">Дедлайн (необязательно)</label>
             <br>
-            <input name="deadline" class="clean" id="deadline-id-for-label" type="date">
+            <input name="deadline" class="form-input" id="deadline-id-for-label" type="date">
             <br>
-            <label class="label" for="category-id-for-label">Категория задачи</label>
+            <label for="category-id-for-label">Категория задачи</label>
             <br>
-            <select required class="clean" name="category">
+            <select required class="form-input" name="category">
                 <option disabled selected value> -- none -- </option>
                 {% for category in categories %}
                 <option value="{{ category.id }}">{{ category.name }}</option>  

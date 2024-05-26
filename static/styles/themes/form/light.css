@@ -1,0 +1,8 @@
+body {
+    background-image: url("../../backgrounds/background.png");
+}
+
+#container {
+    border:  5px solid rgb(207, 239, 241);
+    background-color: #ffffff;
+}
