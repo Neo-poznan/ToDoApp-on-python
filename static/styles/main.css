@@ -1,0 +1,43 @@
+.task-item {
+    border-radius: 10px;
+    margin: 10px;
+    padding: 16px;
+    width: 35vw;
+    cursor:grab;
+    display: flex;
+    align-items: center;
+}
+
+.task-item-name{
+    font-size: 16pt;
+    width: 33vw;
+}
+
+.task-item-delete a{
+    text-decoration: none;
+    font-size: 18pt;
+    text-decoration: none;
+    color: #8e8b8b;
+}
+
+.task-item-add {
+    border-radius: 10px;
+    margin: 10px;
+    padding: 16px;
+    width: 35vw;
+    text-align: center;
+}
+
+.task-item-add i {
+    font-size: 16pt;
+    padding: 4px;
+    border-radius: 20px;
+}
+
+.task-item-add p {
+    margin-top: 8px;
+}
+
+.task-item-add a {
+    text-decoration: none;
+}

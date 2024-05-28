@@ -1,14 +1,18 @@
 {% extends 'taskmanager/base.html' %}
 {% load static %}
 
-{% block css %}
-<link rel="stylesheet" href="{% static 'styles/style.css' %}">
+{% block title %}
+<title>To Do list</title>
+{% endblock %}
 
-    {% if user.preferred_theme == 'Темная' %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'styles/base.css' %}">
+<link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    {% if user.preferred_theme_is_dark %}
         <link rel="stylesheet" href="{% static 'styles/themes/main/dark.css' %}">
         <script>var border = 'rgb(8, 8, 8)';</script>
         <script>var task_border = 'rgb(80, 80, 80)';</script>
-    {% elif user.preferred_theme == 'Светлая' %}
+    {% else %}
         <link rel="stylesheet" href="{% static 'styles/themes/main/light.css' %}">
         <script>var border = '#fff';</script>
         <script>var task_border = '#ccc';</script>
@@ -16,7 +20,6 @@
 {% endblock %}
 
 {% block content %}
-<div class="container" >
     <main>
             <div id="task-list">
                 {% for task in task_list %}
@@ -35,19 +38,13 @@
             </div>                    
 
     </main>
-    <div id="sidebar">
-        <div>
-            <script>
-            let dataset = JSON.parse('{{ chart_data|escapejs }}');
-            </script>
-            <canvas id="pie-chart"></canvas>
-        </div>            
-    </div>
-</div>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="{% static 'JavaScript/pie_chart.js' %}"></script>
-    <script src="{% static 'JavaScript/scripts.js' %}"></script>
 
 {% endblock %}
+
+{% block script %}
+
+<script src="{% static 'JavaScript/scripts.js' %}"></script>
+
+{% endblock %}
+
+

@@ -1,0 +1,43 @@
+{% extends 'taskmanager/base.html' %}
+{% load static %}
+
+{% block title %}
+<title>To Do list - История</title>
+{% endblock %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'styles/base.css' %}">
+<link rel="stylesheet" href="{% static 'styles/history.css' %}">
+    {% if user.preferred_theme_is_dark %}
+        <link rel="stylesheet" href="{% static 'styles/themes/main/dark.css' %}">
+        <script>var border = 'rgb(8, 8, 8)';</script>
+    {% else %}
+        <link rel="stylesheet" href="{% static 'styles/themes/main/light.css' %}">
+        <script>var border = '#fff';</script>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<main>
+    <div id="history-list">
+        {% for key, value in history.items %}
+        <div class="day">
+
+            <a href="{% url 'history:stats_by' key %}" class="date-label">{{ key }}</a>
+             
+            {% for task in value %}
+            <hr>
+            <div class="task">
+                {{ task.task_name }}
+            </div>
+            
+            {% endfor %}
+
+        </div>  
+        {% endfor %}     
+    </div>
+
+</main>
+
+{% endblock %}

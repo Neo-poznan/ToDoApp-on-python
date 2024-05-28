@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block css %}
-    {% if user.preferred_theme == 'Темная' %}
+    {% if user.preferred_theme_is_dark %}
         <link rel="stylesheet" href="{% static 'styles/themes/form/dark.css' %}">
     {% else %}
         <link rel="stylesheet" href="{% static 'styles/themes/form/light.css' %}">

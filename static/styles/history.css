@@ -1,0 +1,23 @@
+.day {
+    width: 35vw;
+    margin-left: 1vw;
+    border: 3px solid rgb(214, 214, 214);
+    border-radius: 20px;
+    margin-bottom: 1vh;
+
+}
+
+.date-label {
+    background-color: #7b7b7b;
+    color: white;
+    border-radius: 12px;
+    padding: 5px;
+    margin-left: 1vw;
+    display: table;
+}
+
+.task {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    margin-left: 1vw;
+}

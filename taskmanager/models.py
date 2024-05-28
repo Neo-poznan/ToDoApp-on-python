@@ -42,11 +42,9 @@ class TaskQuery(QuerySet):
         categories_colors = list(categories_colors_dict.values())
         tasks_in_category = list(tasks_in_category_dict.values())
         return {'categories': categories, 'data': tasks_in_category, 'colors': categories_colors}
+    
+    
         
-
-
-
-
 
 class Task(models.Model):
     name = models.CharField(max_length=250)
@@ -72,8 +70,6 @@ class Task(models.Model):
             deadline = None
         category_id = data['category']
         category = Category.objects.get(id = category_id)
-
-
         if task_list: # если это первая задача пользователя, order будет 0 
             current_last_order = task_list.last().order # получаем order из самого конца списка
             order = current_last_order + 1 # новый таск будет добавляться в конец списка

@@ -9,4 +9,5 @@ urlpatterns = [
     path('create-task/', views.AddTaskView.as_view(), name='create'),
     path('delete-task/<int:task_id>/', views.delete_task_view, name='delete'),
     path('create-category/', views.CategoryCreationView.as_view(), name='create_category'),
+    path('set-theme/', views.set_theme, name='set_theme')
 ]

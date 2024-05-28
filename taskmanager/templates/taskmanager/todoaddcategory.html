@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'styles/form.css' %}">
-    {% if user.preferred_theme == 'Темная' %}
+    {% if user.preferred_theme_is_dark %}
         <link rel="stylesheet" href="{% static 'styles/themes/form/dark.css' %}">
-    {% elif user.preferred_theme == 'Светлая' %}
+    {% else %}
         <link rel="stylesheet" href="{% static 'styles/themes/form/light.css' %}">
     {% endif %}
     

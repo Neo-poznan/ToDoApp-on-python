@@ -1,10 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To do list</title>
-    
+    {% block title %}
+    {% endblock %}
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
     {% block css %}
 
@@ -18,14 +20,23 @@
         </div>  
         
         <div class="user-info">
+            <p>Темная тема:</p>
+            <label class="switch">
+                
+                {% if user.preferred_theme_is_dark %}
+                    <input value="1" type="checkbox" id="theme-switch" checked>
+                {% else %}
+                    <input value="1" type="checkbox" id="theme-switch">
+                {% endif %}
+                <span class="slider round"></span>
+            </label>
+
             <div class="user-menu" >
                 
                 <div class="dropdown">
                     <div onclick="DropDown()" class="dropbtn">Меню</div>
                     <div id="myDropdown" class="dropdown-content">
-                    <a href="#">Установить аватар</a>
-                    <hr>
-                    <a href="#">История</a>
+                    <a href="{% url 'history:history' %}">История</a>
                     <hr>
                     <a href="{% url 'users:logout' %}">Выйти</a>
                     {% if user.is_superuser %}
@@ -44,11 +55,30 @@
         </div>
 
 
-        </div>
     </header>
+    <div class="container" >
     {% block content %}
     
     {% endblock %}
 
+<div id="sidebar">
+    <div class="date-label">{{ selected_date }}</div>
+    
+    <div>
+        <script>
+        let dataset = JSON.parse('{{ chart_data|escapejs }}');
+        </script>
+        <canvas id="pie-chart"></canvas>
+    </div>            
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{% static 'JavaScript/pie_chart.js' %}"></script>
+    {% block script %}
+
+    {% endblock %}
+    </div>
 </body>
+
 </html>

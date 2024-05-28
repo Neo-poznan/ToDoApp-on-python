@@ -7,6 +7,7 @@ from django.views.generic import View, TemplateView
 
 from taskmanager.models import Task, Category
 from taskmanager.color_converter import hex_to_rgba_04, random_hex
+from history.models import TaskHisoty
 
 
 
@@ -64,7 +65,14 @@ class AddTaskView(View):
     
 
 def delete_task_view(request, task_id):
-    Task.objects.get(id=task_id).delete()
+    task = Task.objects.get(id=task_id)
+    # сохраняем в историю   
+    TaskHisoty.objects.create(
+        task_name=task.name,
+        category=task.category,
+        user=request.user
+        )
+    task.delete()
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 
@@ -89,4 +97,17 @@ def DeleteCategoryView(request, category_id):
     Category.objects.get(id=category_id).delete()
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
+
+def set_theme(request):
+    user = request.user
+    body_unicode = request.body.decode('utf-8')
+    body_data = json.loads(body_unicode)
+    if body_data['theme'] == 'Темная':
+        user.preferred_theme_is_dark = True
+        user.save(update_fields=["preferred_theme_is_dark"])
+    else:
+        user.preferred_theme_is_dark = False
+        user.save(update_fields=["preferred_theme_is_dark"])
+
+    return JsonResponse({'status': 'success'})
 

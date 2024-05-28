@@ -92,3 +92,38 @@ function DropDown() {
     }
   }
 
+
+document.addEventListener('DOMContentLoaded', function() {
+  const themeSwitch = document.getElementById('theme-switch');
+
+  themeSwitch.addEventListener('change', function() {
+    // Определение текущей темы на основе состояния переключателя
+    const theme = this.checked ? 'Темная' : 'Светлая';
+
+    // Изменение класса темы для body
+    document.body.className = theme + '-mode';
+
+    // Отправка новой темы на сервер
+    fetch('/to-do-list/set-theme/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': csrftoken, // Убедитесь, что csrftoken корректно получен
+      },
+      body: JSON.stringify({ theme: theme })
+    }).then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      else {
+        setTimeout(() => { window.location.reload(); }, 500);
+      }
+      return response.json();
+    }).then(data => {
+      console.log('Theme updated:', data);
+    }).catch(error => {
+      console.error('Error updating theme:', error);
+    });
+  });
+});
+
